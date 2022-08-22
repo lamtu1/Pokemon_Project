@@ -48,6 +48,12 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Adding Blacklight library
+gem "blacklight"
+
+# Add in Devise library
+#gem "devise"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -70,3 +76,24 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :development, :test do
+  gem "solr_wrapper", ">= 0.3"
+end
+gem "rsolr", ">= 1.0", "< 3"
+gem "bootstrap", "~> 4.0"
+gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
+gem "sassc-rails", "~> 2.1"
+gem "jquery-rails"
+
+group :development, :test do
+  gem "solr_wrapper", ">= 0.3"
+end
+gem "rsolr", ">= 1.0", "< 3"
+gem "bootstrap", "~> 4.0"
+gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
+gem "sassc-rails", "~> 2.1"
+gem "jquery-rails"
+gem "devise"
+gem "devise-guests", "~> 0.8"
+gem "blacklight-marc", ">= 7.0.0.rc1", "< 8"
