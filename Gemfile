@@ -51,12 +51,18 @@ gem "bootsnap", require: false
 # Adding Blacklight library
 gem "blacklight"
 
-# Add in Devise library
-#gem "devise"
+# Add in Paperclip library
+gem "paperclip"
+
+# Add in Simple Form
+gem 'simple_form'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Add in RSPEC-Rails
+  gem "rspec-rails"
 end
 
 group :development do
