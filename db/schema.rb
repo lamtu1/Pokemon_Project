@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_182129) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_221045) do
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
@@ -23,6 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_182129) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "pokemons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "searches", force: :cascade do |t|
     t.binary "query_params"
     t.integer "user_id"
@@ -30,13 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_182129) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

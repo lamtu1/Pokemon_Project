@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pokemons
   # Blacklight setup for View as a main homepage
   concern :marc_viewable, Blacklight::Marc::Routes::MarcViewable.new
   devise_for :users
@@ -23,7 +24,4 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  get "/main", to: "dashboards#home"
 end
