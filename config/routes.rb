@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Blacklight setup for View as a main homepage
   concern :marc_viewable, Blacklight::Marc::Routes::MarcViewable.new
   devise_for :users
   mount Blacklight::Engine => '/'
@@ -24,5 +25,5 @@ Rails.application.routes.draw do
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
-  # root "articles#index"
+  get "/main", to: "dashboards#home"
 end
