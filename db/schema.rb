@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_160254) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_203157) do
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
@@ -28,6 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_160254) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ability"
+    t.decimal "height"
+    t.decimal "weight"
+    t.integer "male_chance"
+    t.integer "female_chance"
   end
 
   create_table "searches", force: :cascade do |t|
