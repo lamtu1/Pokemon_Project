@@ -22,6 +22,7 @@ class PokemonsController < ApplicationController
   # POST /pokemons or /pokemons.json
   def create
     @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.image.attach(params[:image])
 
     respond_to do |format|
       if @pokemon.save
@@ -65,6 +66,6 @@ class PokemonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pokemon_params
-      params.require(:pokemon).permit(:name, :ability, :male_chance, :female_chance, :height, :weight)
+      params.require(:pokemon).permit(:name, :ability, :male_chance, :female_chance, :height, :weight, :image)
     end
 end

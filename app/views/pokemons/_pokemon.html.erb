@@ -12,6 +12,9 @@
     <%= pokemon.male_chance %>
     <strong>Female Rate:</strong>
     <%= pokemon.female_chance %>
+
+    <%= image_tag pokemon.image.variant(:thumb) if pokemon.image.attached? %>
+    
   </p>
 
 </div>
