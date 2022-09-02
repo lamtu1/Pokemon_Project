@@ -21,8 +21,9 @@ class PokemonsController < ApplicationController
 
   # POST /pokemons or /pokemons.json
   def create
+    @pokemon = Pokemon.new(pokemon_params)
     #Call the function to setup the image appending
-    @pokemon = image_process()
+    image_process()
 
     respond_to do |format|
       if @pokemon.save
@@ -59,11 +60,9 @@ class PokemonsController < ApplicationController
   end
 
   # REFACTOR function to add in the image process
-  def image_process
-    @item = Pokemon.new(pokemon_params)
-    @item.image.attach(params[:image])
-
-    return @item
+  def image_process()
+    # Call this method to append the image onto the DB
+    @pokemon.image.attach(params[:image])
   end
 
   
