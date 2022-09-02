@@ -22,6 +22,8 @@ class PokemonsController < ApplicationController
   # POST /pokemons or /pokemons.json
   def create
     @pokemon = Pokemon.new(pokemon_params)
+    #Call the function to setup the image appending
+    image_process()
 
     respond_to do |format|
       if @pokemon.save
@@ -57,6 +59,13 @@ class PokemonsController < ApplicationController
     end
   end
 
+  # REFACTOR function to add in the image process
+  def image_process()
+    # Call this method to append the image onto the DB
+    @pokemon.image.attach(params[:image])
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pokemon
@@ -65,6 +74,6 @@ class PokemonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pokemon_params
-      params.require(:pokemon).permit(:name, :ability, :male_chance, :female_chance, :height, :weight)
+      params.require(:pokemon).permit(:name, :ability, :male_chance, :female_chance, :height, :weight, :image)
     end
 end

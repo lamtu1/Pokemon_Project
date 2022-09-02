@@ -3,28 +3,40 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
+  <%# Add in each individual field to layout the edit section %>
+  <div class="field form-group">
+    <%= f.label :name, "Pokemon's Name" %>
+    <%= f.text_field :name, class:"form-control" %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :ability %>
+  <div class="field form-group">
+    <%= f.label :ability, "Abilities" %>
+    <%= f.text_field :ability, class:"form-control" %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :height %>
+  <div class="field form-group">
+    <%= f.label :height, "Height (m)" %>
+    <%= f.number_field :height, class:"form-control" %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :weight %>
+  <div class="field form-group">
+    <%= f.label :weight, "Weight (lbs)" %>
+    <%= f.number_field :weight, class:"form-control" %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :male_chance %>
+  <div class="field form-group">
+    <%= f.label :male_chance, "Male Rate Encounter" %>
+    <%= f.number_field :male_chance, class:"form-control" %>
   </div>
 
-  <div class="form-inputs">
-    <%= f.input :female_chance %>
+  <div class="field form-group">
+    <%= f.label :female_chance, "Female Rate Encounter" %>
+    <%= f.number_field :female_chance, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "Upload Image" %>
+    <%= f.file_field :image, class:"form-control" %>
   </div>
 
   <div class="form-actions">

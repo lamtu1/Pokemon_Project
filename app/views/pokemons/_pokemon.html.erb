@@ -1,17 +1,28 @@
 <div id="<%= dom_id pokemon %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pokemon.name %>
-    <strong>Ability:</strong>
-    <%= pokemon.ability %>
-    <strong>Height:</strong>
-    <%= pokemon.height %>
-    <strong>Weight:</strong>
-    <%= pokemon.weight %>
-    <strong>Male Rate:</strong>
-    <%= pokemon.male_chance %>
-    <strong>Female Rate:</strong>
-    <%= pokemon.female_chance %>
-  </p>
+  
+  <br>
+
+  <%# Make the layout of each individual data in the Pokemon's DB %>
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>  </th>
+      <th> Pokemon's Name </th>
+      <th> Abilities </th>              
+      <th> Height (m) </th>                      
+      <th> Weight (lbs) </th>
+      <th> Male Encounter Rate </th>
+      <th> Female Encounter Rate </th>
+    </tr>
+ 
+    <tr>
+      <td> <%= image_tag pokemon.image.variant(:thumb) if pokemon.image.attached? %> </td>
+      <td> <%= pokemon.name %> </td>         
+      <td> <%= pokemon.ability %> </td>    
+      <td> <%= pokemon.height %> </td>
+      <td> <%= pokemon.weight %> </td>   
+      <td> <%= pokemon.male_chance %> </td>
+      <td> <%= pokemon.female_chance %> </td>
+    </tr>
+ </table>
 
 </div>

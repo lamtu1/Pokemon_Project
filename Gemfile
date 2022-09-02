@@ -51,11 +51,11 @@ gem "bootsnap", require: false
 # Adding Blacklight library
 gem "blacklight"
 
-# Add in Paperclip library
-gem "paperclip"
-
 # Add in Simple Form
 gem 'simple_form'
+
+# Add in the Image Processing library
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
