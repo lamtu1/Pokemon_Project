@@ -54,6 +54,7 @@ gem "blacklight"
 # Add in Simple Form
 gem 'simple_form'
 
+# Add in the Image Processing library
 gem 'image_processing', '~> 1.2'
 
 group :development, :test do

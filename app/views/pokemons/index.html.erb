@@ -5,10 +5,14 @@
 <div id="pokemons">
   <% @pokemons.each do |pokemon| %>
     <%= render pokemon %>
-    <p>
+
+    <%# Make the button look nicer with bootstrap %>
+    <button type="button" class="btn btn-outline-secondary">
       <%= link_to "Show this pokemon", pokemon %>
-    </p>
+    </button>
   <% end %>
 </div>
+
+<br>
 
 <%= link_to "New pokemon", new_pokemon_path %>

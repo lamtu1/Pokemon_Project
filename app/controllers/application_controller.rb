@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Add in params to allow things into Devise w/ Blacklight
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update) do |user_params|
       user_params.permit(:nickname, :fav_pokemon, :quote, :email, :password, :password_confirmation, :current_password)
