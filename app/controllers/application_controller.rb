@@ -15,12 +15,12 @@ class ApplicationController < ActionController::Base
   end
 
   # Redirect after login
-  def after_sign_in_path_for(resource)
-    stored_location_for(pokemons) || pokemon_main_path
+  def after_sign_in_path_for(_resource)
+    pokemon_main_path
   end
 
-  # Redirect after update
-  def after_update_path_for(resource)
+  # Redirect after update using the root path method instead of update_path
+  def user_root_path
     pokemon_main_path
   end
 end

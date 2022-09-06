@@ -1,10 +1,13 @@
+<head>
+  <link rel="stylesheet" href="./stylesheets/pokemon_style.css">
+</head>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <p style="background-color:tomato; color:white"> Please make sure to enter your Current Password to make any Update </p>
+    <p id="notice_update"> * Please make sure to enter your Current Password to make any update </p>
     <%= f.label :email, "User's Email" %>
     <%= f.text_field :email, required: true, autofocus: true, class:"form-control" %>
 
@@ -29,20 +32,20 @@
 
     <br>
     <%= f.label :password, "New Password" %>
-    <%= f.text_field :password, class:"form-control", 
+    <%= f.password_field :password, class:"form-control", 
                      placeholder: "Leave it blank if you don't want to change it",
                      required: false,
                      input_html: { autocomplete: "new-password" } %>
 
     <br>
     <%= f.label :password_confirmation, "Re-enter New Password" %>
-    <%= f.text_field :password_confirmation, class:"form-control",
+    <%= f.password_field :password_confirmation, class:"form-control",
                      required: false,
                      input_html: { autocomplete: "new-password" } %>
 
     <br>
-    <%= f.label :current_password, "Update w/ Current Password" %>
-    <%= f.text_field :current_password, class:"form-control",
+    <%= f.label :current_password, "Make Change(s) w/ Current Password" %>
+    <%= f.password_field :current_password, class:"form-control",
                      placeholder: "We need your current password to confirm your changes",
                      required: true,
                      input_html: { autocomplete: "current-password" } %>
