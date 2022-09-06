@@ -4,29 +4,48 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <p style="background-color:tomato; color:white"> Please make sure to enter your Current Password to make any Update </p>
+    <%= f.label :email, "User's Email" %>
+    <%= f.text_field :email, required: true, autofocus: true, class:"form-control" %>
 
-    <%= f.input :nickname, required: false %>
+    <br>
 
-    <%= f.input :quote, required: false %>
+    <%= f.label :nickname, "Nickname" %>
+    <%= f.text_field :nickname, class:"form-control" %>
 
-    <%= f.input :fav_pokemon, required: false %>
+    <br>
+
+    <%= f.label :quote, "Pokemon's Quote" %>
+    <%= f.text_field :quote, class:"form-control" %>
+
+    <br>
+
+    <%= f.label :fav_pokemon, "Favorite Pokemon" %>
+    <%= f.text_field :fav_pokemon, class:"form-control" %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    <br>
+    <%= f.label :password, "New Password" %>
+    <%= f.text_field :password, class:"form-control", 
+                     placeholder: "Leave it blank if you don't want to change it",
+                     required: false,
+                     input_html: { autocomplete: "new-password" } %>
+
+    <br>
+    <%= f.label :password_confirmation, "Re-enter New Password" %>
+    <%= f.text_field :password_confirmation, class:"form-control",
+                     required: false,
+                     input_html: { autocomplete: "new-password" } %>
+
+    <br>
+    <%= f.label :current_password, "Update w/ Current Password" %>
+    <%= f.text_field :current_password, class:"form-control",
+                     placeholder: "We need your current password to confirm your changes",
+                     required: true,
+                     input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
