@@ -24,4 +24,7 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  # Add in a routes to the main page
+  get '/pokemons', to: 'pokemons#index', as: 'pokemon_main'
 end
