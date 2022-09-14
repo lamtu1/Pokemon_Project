@@ -1,12 +1,13 @@
 <div id="<%= dom_id pokemon %>">
   
   <br>
-
+  
   <%# Make the layout of each individual data in the Pokemon's DB %>
   <table class="table table-striped table-hover">
     <tr>
       <th>  </th>
       <th> Pokemon's Name </th>
+      <th> Type(s) </th>
       <th> Abilities </th>              
       <th> Height (m) </th>                      
       <th> Weight (lbs) </th>
@@ -16,13 +17,22 @@
  
     <tr>
       <td> <%= image_tag pokemon.image.variant(:thumb) if pokemon.image.attached? %> </td>
-      <td> <%= pokemon.name %> </td>         
+      <td> <%= pokemon.name %> </td>
+      <% if pokemon.elements.empty? %>
+        <td> N/A </td>
+      <% else %>
+        <% pokemon.elements.each do |e| %>
+          <td> <%= e.power %> </td>
+        <% end %> 
+      <% end %>
       <td> <%= pokemon.ability %> </td>    
       <td> <%= pokemon.height %> </td>
       <td> <%= pokemon.weight %> </td>   
       <td> <%= pokemon.male_chance %> </td>
       <td> <%= pokemon.female_chance %> </td>
     </tr>
- </table>
+  </table>
+
+ <br>
 
 </div>

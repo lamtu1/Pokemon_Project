@@ -29,8 +29,8 @@
 
     <br>
     <%= f.label :password, "New Password" %>
-    <%= f.password_field :password, class:"form-control", 
-                     placeholder: "Leave it blank if you don't want to change it",
+    <i>(Leave it blank if you don't want to change it)</i>
+    <%= f.password_field :password, class:"form-control",
                      required: false,
                      input_html: { autocomplete: "new-password" } %>
 
@@ -42,8 +42,8 @@
 
     <br>
     <%= f.label :current_password, "Make Change(s) w/ Current Password" %>
+    <i>(We need your current password to confirm your changes)</i>
     <%= f.password_field :current_password, class:"form-control",
-                     placeholder: "We need your current password to confirm your changes",
                      required: true,
                      input_html: { autocomplete: "current-password" } %>
   </div>
