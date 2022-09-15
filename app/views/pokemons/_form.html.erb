@@ -1,11 +1,10 @@
-
 <%= simple_form_for(@pokemon) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%# Add in each individual field to layout the edit section %>
   <div class="field form-group">
-    <%= f.label :name, "Pokemon's Name" %>
+    <%= f.label :name, "Pokémon's Name" %>
     <%= f.text_field :name, class:"form-control" %>
   </div>
 
@@ -25,22 +24,25 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :male_chance, "Male Rate Encounter" %>
+    <%= f.label :male_chance, "Male Encounter %" %>
     <%= f.number_field :male_chance, class:"form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :female_chance, "Female Rate Encounter" %>
+    <%= f.label :female_chance, "Female Encounter %" %>
     <%= f.number_field :female_chance, class:"form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label "Upload Image" %>
+    <%= f.label "Image Upload" %>
     <br>
     <%= f.file_field :image %>
   </div>
 
+  <%# Add in submit button w/ customize %>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg") do %>
+      Click to Submit
+    <% end %>
   </div>
 <% end %>

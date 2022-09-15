@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<p class="notice_identify"><%= notice %></p>
 
 <%= render @pokemon %>
 
-<div>
-  <%= link_to "Edit this pokemon", edit_pokemon_path(@pokemon) %> |
-  <%= link_to "Back to pokemons", pokemons_path %>
+<%# Add in Divider to hold navigation to other pages %>
+<div class="box_div">
+  <h4 class="extra_title">More Options</h4>
+  <hr>
 
-  <%= button_to "Destroy this pokemon", @pokemon, method: :delete, data: {confirm: "Are you sure you want to delete?" } %>
+  <%# Add in buttons to guide user to different pages %>
+  <%= link_to "Back to Pokédex", pokemons_path, class: "button" %>
+  <%= link_to "Edit the Pokémon", edit_pokemon_path(@pokemon), class: "button" %>
+
+  <%# Add in buttons to delete the Pokemon %>
+  <%= button_to "Delete This Pokémon", @pokemon, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "button" %>
+  
 </div>
