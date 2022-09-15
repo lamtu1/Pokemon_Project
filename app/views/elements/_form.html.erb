@@ -1,0 +1,17 @@
+<%= simple_form_for(@element) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%# Add in field for type %>
+  <div class="field form-group">
+    <%= f.label :power, "Pokémon's Type" %>
+    <%= f.text_field :power, class:"form-control" %>
+  </div>
+
+  <%# Add in submit button w/ customize %>
+  <div class="form-actions">
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg") do %>
+      Click to Submit
+    <% end %>
+  </div>
+<% end %>

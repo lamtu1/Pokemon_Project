@@ -1,0 +1,19 @@
+<h1>Editing Pokémon's Type</h1>
+
+<%= render "form", element: @element %>
+
+<br>
+
+<%# Add in Divider to hold navigation to other pages %>
+<div class="box_div">
+  <h4 class="extra_title">Extra Link(s)</h4>
+  <hr>
+
+  <%# Add in buttons to guide user to different pages %>
+  <%= link_to "Back to Pokédex", pokemons_path, class: "button" %>
+  <%= link_to "Back to Type's Page", elements_path, class: "button" %>
+  <%= link_to "Go to Pokémon's Type", @element, class: "button" %>
+
+  <%# Add in buttons to go back to Pokemon %>
+  <%= link_to "Go Back", :back, class: "button" %>
+</div>

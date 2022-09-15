@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_185134) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_175958) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_185134) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "elements", force: :cascade do |t|
+    t.string "power"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "elements_pokemons", id: false, force: :cascade do |t|
+    t.integer "pokemon_id"
+    t.integer "element_id"
+    t.index ["element_id"], name: "index_elements_pokemons_on_element_id"
+    t.index ["pokemon_id"], name: "index_elements_pokemons_on_pokemon_id"
+  end
+
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -69,6 +82,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_185134) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # Add in resources to map to different locations for different controller
+  resources :elements
   resources :pokemons
   # Blacklight setup for View as a main homepage
   concern :marc_viewable, Blacklight::Marc::Routes::MarcViewable.new

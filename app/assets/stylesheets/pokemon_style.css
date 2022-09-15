@@ -3,3 +3,55 @@
     font-size: 16px;
     font-style: italic;
 }
+
+.notice_identify {
+    color: green;
+}
+
+.box_div {
+    width: 1100px;
+    padding: 35px;
+    position: center;
+    margin: auto;
+    margin-top: 5px;
+
+    box-shadow: 0px 0px 35px 0px rgba(0,0,0,0.2);
+    border-radius: 25px;
+}
+
+.extra_title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #242526;
+}
+
+.button {
+    display: block;
+	background-color: #D73F09;
+	color: #FFFFFF;
+	padding: 6px 4px;
+	margin: 4px;
+
+    width: 180px;
+    height: 40px;
+    box-shadow: 0px 0px 35px 0px rgba(0,0,0,0.2);
+    border-radius: 25px;
+    transition: background-color 1s ease-out 10ms;
+    display: inline-block;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #242526;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+form label {
+    font-weight:bold;
+    font-style: italic;
+    font-size: 15px;
+}
