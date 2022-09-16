@@ -50,8 +50,27 @@
     text-decoration: none;
 }
 
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+td.break {
+    float: left;
+}
+
 form label {
     font-weight:bold;
     font-style: italic;
     font-size: 15px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    columns: 80px;
 }

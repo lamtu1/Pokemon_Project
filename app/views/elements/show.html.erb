@@ -2,10 +2,17 @@
 
 <%= render @element %>
 
-<div>
-  <%= link_to "Edit this element", edit_element_path(@element) %> |
-  <%= link_to "Back to elements", elements_path %> |
-  <%= link_to "To Pokemon", pokemons_path %> 
+<%# Add in Divider to hold navigation to other pages %>
+<div class="box_div">
+  <h4 class="extra_title">More Options</h4>
+  <hr>
 
-  <%= button_to "Destroy this element", @element, method: :delete %>
+  <%# Add in buttons to guide user to different pages %>
+  <%= link_to "Back to Pokédex", pokemons_path, class: "button" %>
+  <%= link_to "Back to Type", elements_path, class: "button" %>
+  <%= link_to "Edit The Type", edit_element_path(@element), class: "button" %>
+
+  <%# Add in buttons to delete the Pokemon %>
+  <%= button_to "Delete This Type", @element, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "button" %>
+  
 </div>

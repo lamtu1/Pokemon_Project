@@ -33,6 +33,19 @@
     <%= f.number_field :female_chance, class:"form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label "Assign a Type" %>
+    <br>
+    <ul>
+      <%= f.collection_check_boxes :element_ids, Element.all, :id, :power do |b| %>
+        <li>
+          <%= b.label %>
+          <%= b.check_box %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
   <div class="field form-group">
     <%= f.label "Image Upload" %>
     <br>

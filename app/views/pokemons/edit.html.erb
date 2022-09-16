@@ -15,10 +15,11 @@
 
   <%# Add in buttons to choose which typing to change %>
   <% if @pokemon.elements.empty? %>
-    <%= "No Type to Edit" %>
+    <%= " No Type is Assign to this Pokémon " %>
   <% else %>
     <% @pokemon.elements.each do |ele| %>
       <%= link_to "Edit Type: #{ele.power}", edit_element_path(ele.id), class: "button" %>
     <% end %> 
   <% end %>
 </div>
+
