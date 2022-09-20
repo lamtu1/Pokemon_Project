@@ -8,4 +8,4 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
-
+//= require pokemon_type_choose
