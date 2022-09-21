@@ -1,20 +1,21 @@
 <p class="notice_identify"><%= notice %></p>
 
-<h1>Pokemons</h1>
+<h1>Pokémons</h1>
 
 <div id="pokemons">
   <% @pokemons.each do |pokemon| %>
     <%= render pokemon %>
 
     <%# Make the button look nicer with bootstrap %>
-    <button type="button" class="btn btn-outline-secondary">
-      <%= link_to "Show this pokemon", pokemon %>
-    </button>
+    <%= link_to "Show this Pokémon", pokemon, class: "button" %>
+    <%= link_to "Edit the Pokémon", edit_pokemon_path(pokemon), class: "button" %>
   <% end %>
 </div>
 
 <br>
+<br>
 
-<%= link_to "New pokemon", new_pokemon_path %> |
+<h3>More Links</h3>
+<%= link_to "Add New Pokémon", new_pokemon_path, class: "button" %>
 <%# Add in a link to add in new typing %>
-<%= link_to "Add In New Type", new_element_path %>
+<%= link_to "Add New Type", new_element_path, class: "button" %>

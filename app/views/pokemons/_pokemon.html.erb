@@ -22,14 +22,14 @@
         <td> N/A </td>
       <% else %>
         <% pokemon.elements.each do |e| %>
-          <td> <%= e.power %> </td>
+          <td class="break"> <%= e.power %> </td>
         <% end %> 
       <% end %>
       <td> <%= pokemon.ability %> </td>    
-      <td> <%= pokemon.height %> </td>
-      <td> <%= pokemon.weight %> </td>   
-      <td> <%= pokemon.male_chance %> </td>
-      <td> <%= pokemon.female_chance %> </td>
+      <td> <%= pokemon.height  %> m </td>
+      <td> <%= pokemon.weight %> lbs </td>   
+      <td> <%= pokemon.male_chance %>% </td>
+      <td> <%= pokemon.female_chance %>% </td>
     </tr>
   </table>
 

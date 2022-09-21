@@ -1,10 +1,8 @@
-<h1>New element</h1>
+<h1>Add New Type</h1>
 
 <%= render "form", element: @element %>
 
 <br>
 
-<div>
-  <%= link_to "Go to elements", elements_path %> |
-  <%= link_to "Back to Pokemons", pokemons_path %> 
-</div>
+<%= link_to "Go Back to Pokédex", pokemons_path, class: "button" %>
+<%= link_to "Go To Types", elements_path, class: "button" %>

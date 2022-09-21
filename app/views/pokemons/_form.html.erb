@@ -9,7 +9,7 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :ability, "Abilities" %>
+    <%= f.label :ability, "Ability" %>
     <%= f.text_field :ability, class:"form-control" %>
   </div>
 
@@ -31,6 +31,19 @@
   <div class="field form-group">
     <%= f.label :female_chance, "Female Encounter %" %>
     <%= f.number_field :female_chance, class:"form-control" %>
+  </div>
+
+  <div class="checkbox_type">
+    <%= f.label "Pokémon Type Assigning" %>
+    <br>
+    <ul>
+      <%= f.collection_check_boxes :element_ids, Element.all, :id, :power do |b| %>
+        <li>
+          <%= b.label %>
+          <input type="checkbox" value=<%= b.value.to_s %> name="pokemon[element_ids][]" onclick="update_checkboxes()" <%= 'checked="true"'.html_safe if f.object.element_ids.include? b.value %>>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="field form-group">
