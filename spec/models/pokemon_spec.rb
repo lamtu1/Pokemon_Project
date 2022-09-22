@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Pokemon, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'return the Pokemon name' do
+    pokemon = Pokemon.create(name: "Bulbasaur")
+    expect(pokemon.name).to eq 'Bulbasaur'
+  end
 end

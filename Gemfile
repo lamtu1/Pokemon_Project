@@ -63,6 +63,9 @@ group :development, :test do
 
   # Add in RSPEC-Rails
   gem "rspec-rails"
+
+  # Add in SimpleCov
+  gem 'simplecov', require: false, group: :test
 end
 
 group :development do
