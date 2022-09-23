@@ -66,6 +66,9 @@ group :development, :test do
 
   # Add in RSPEC-Rails
   gem "rspec-rails"
+
+  # Add Shoulda-Matcher
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
