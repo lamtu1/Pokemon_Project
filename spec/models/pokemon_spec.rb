@@ -11,9 +11,13 @@ RSpec.describe Pokemon, type: :model do
     it { should have_one_attached(:image) }
   end
 
-  describe 'GET #index' do
-    before { gets :index }
-
-    it { should render_template('index') }
+  # ATTRIBUTES TEST: Testing to make sure the model have all the attributes needed
+  describe 'attributes' do
+    it { should respond_to(:name) }
+    it { should respond_to(:ability) }
+    it { should respond_to(:male_chance) }
+    it { should respond_to(:female_chance) }
+    it { should respond_to(:weight) }
+    it { should respond_to(:height) }
   end
 end

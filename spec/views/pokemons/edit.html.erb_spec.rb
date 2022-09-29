@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "pokemons/edit", type: :view do
   before(:each) do
     @pokemon = assign(:pokemon, Pokemon.create!(
-      name: "MyString"
+      name: "MyString",
+      ability: "PokemonAbility"
     ))
   end
 
