@@ -2,8 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Pokemon, type: :model do
   # ASSOCIATION TEST: Whether the association between Pokemon & Type exist
-  it "should have many elements" do
-    association_p = Pokemon.reflect_on_association(:elements)
-    expect(association_p.macro).to eq(:has_and_belongs_to_many)
+  describe 'associations' do
+    it { should have_and_belong_to_many(:elements) }
+  end
+
+  # IMAGE TEST: Testing the image attachment to see it would attach one image
+  describe 'image attached' do
+    it { should have_one_attached(:image) }
+  end
+
+  describe 'GET #index' do
+    before { gets :index }
+
+    it { should render_template('index') }
   end
 end
