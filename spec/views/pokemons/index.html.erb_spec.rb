@@ -4,10 +4,12 @@ RSpec.describe "pokemons/index", type: :view do
   before(:each) do
     assign(:pokemons, [
       Pokemon.create!(
-        name: "Name"
+        name: "Name",
+        ability: "Ability"
       ),
       Pokemon.create!(
-        name: "Name"
+        name: "Name",
+        ability: "Ability"
       )
     ])
   end

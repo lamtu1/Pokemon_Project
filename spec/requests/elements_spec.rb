@@ -18,7 +18,7 @@ RSpec.describe "/elements", type: :request do
   # Element. As you add validations to Element, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { power: "Rock" } 
   }
 
   let(:invalid_attributes) {
