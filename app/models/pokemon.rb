@@ -9,4 +9,8 @@ class Pokemon < ApplicationRecord
 
    # Add in validator to the attribute
    validates_format_of :ability, :with => /\A[a-z]+\z/i
+
+   # Create a method to format the data in Pokemon to be added into Solr
+   def to_solr
+   end 
 end
