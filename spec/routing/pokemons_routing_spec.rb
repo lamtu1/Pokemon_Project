@@ -35,4 +35,11 @@ RSpec.describe PokemonsController, type: :routing do
       expect(delete: "/pokemons/1").to route_to("pokemons#destroy", id: "1")
     end
   end
+
+  # Testing a custom routing
+  describe "custom routing" do
+    it "routes to #index (CUSTOM)" do
+      expect(get: pokemon_main_path).to route_to("pokemons#index")
+    end
+  end
 end
