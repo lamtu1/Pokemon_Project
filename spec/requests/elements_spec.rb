@@ -87,7 +87,7 @@ RSpec.describe "/elements", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { power: "Bug" }
       }
 
       it "updates the requested element" do
