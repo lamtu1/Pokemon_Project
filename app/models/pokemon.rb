@@ -11,25 +11,17 @@ class Pokemon < ApplicationRecord
    validates_format_of :ability, :with => /\A[a-z]+\z/i
 
    # Create a method to format the data in Pokemon to be added into Solr
-   def to_solr()
-        # Add in the array to convert into array hash & add in an empty hash
-        convert_data = []
-        hash_data = {}
+   def to_solr
+     [solrized_attribute_keys.to_h { |solr_name| [solr_name, [attribute_call(solr_name)]] }.merge!({"id" => id.to_s})]
+   end
 
-        # Take the data from the param to create into hash
-        hash_data = { "name_ssim" => [self.name.to_s],
-                      "ability_ssim" => [self.ability.to_s],
-                      "male_ssim" => [self.male_chance.to_s],
-                      "female_ssim" => [self.female_chance.to_s],
-                      "height_ssim" => [self.height.to_s],
-                      "weight_ssim" => [self.weight.to_s],
-                      "id" => self.id.to_s
-                    }
-        
-        # Put the data from hash into the array
-        convert_data.push(hash_data)
+   private
 
-        # Return the array data
-        return convert_data
-   end 
+   def solrized_attribute_keys
+     (self.attributes.keys - %w{created_at updated_at id}).map { |key| "#{key}_ssim" }
+   end
+
+   def attribute_call(solr_name)
+     self.send(solr_name.gsub("_ssim", "").to_sym).to_s
+   end
 end
