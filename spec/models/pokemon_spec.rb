@@ -27,8 +27,8 @@ RSpec.describe Pokemon, type: :model do
       test_data = Pokemon.create(name: "Mudkip", ability: "Torrent", male_chance: 88, female_chance: 12, height: 0.4, weight: 16.8, id: 1)
       expect(test_data.to_solr).to eq([{"name_ssim" => ["Mudkip"], 
                                        "ability_ssim" => ["Torrent"],
-                                       "male_ssim" => ["88"],
-                                       "female_ssim" => ["12"],
+                                       "male_chance_ssim" => ["88"],
+                                       "female_chance_ssim" => ["12"],
                                        "height_ssim" => ["0.4"],
                                        "weight_ssim" => ["16.8"],
                                        "id"=>"1"}])
