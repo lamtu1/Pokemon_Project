@@ -22,11 +22,16 @@ class PokemonsController < ApplicationController
   # POST /pokemons or /pokemons.json
   def create
     @pokemon = Pokemon.new(pokemon_params)
-    #Call the function to setup the image appending
+    # Call the function to setup the image appending
     image_process()
+
+    @connect = Pokemon.new.setup_conn
 
     respond_to do |format|
       if @pokemon.save
+        # Take the data and converted to SOLR data
+        @connect.add(@pokemon.to_solr)
+        @connect.commit
         format.html { redirect_to pokemon_url(@pokemon), notice: "Pokemon was successfully created." }
         format.json { render :show, status: :created, location: @pokemon }
       else
