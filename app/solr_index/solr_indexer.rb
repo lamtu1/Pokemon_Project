@@ -6,9 +6,11 @@ class SolrIndexer
         @data = data
     end
 
-    # METHOD: Index the value onto Solr
+    # METHOD: Index the value onto Solr via add & commit
     def index_to_solr
-        @conn.add @data.to_solr
-        @conn.commit
+        if (@data.respond_to?(:to_solr))
+            @conn.add @data.to_solr
+            @conn.commit
+        end
     end
 end

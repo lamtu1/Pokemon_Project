@@ -11,13 +11,13 @@
 
   <%# Add in buttons to guide user to different pages %>
   <%= link_to "Back to Pokédex", pokemons_path, class: "button" %>
-  <%= link_to "Go to Pokémon Page", @pokemon, class: "button" %>
+  <%= link_to "Go to Pokémon Page", @data, class: "button" %>
 
   <%# Add in buttons to choose which typing to change %>
-  <% if @pokemon.elements.empty? %>
+  <% if @data.elements.empty? %>
     <%= " No Type is Assign to this Pokémon " %>
   <% else %>
-    <% @pokemon.elements.each do |ele| %>
+    <% @data.elements.each do |ele| %>
       <%= link_to "Edit Type: #{ele.power}", edit_element_path(ele.id), class: "button" %>
     <% end %> 
   <% end %>
