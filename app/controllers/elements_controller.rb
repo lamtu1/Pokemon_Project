@@ -1,6 +1,9 @@
 class ElementsController < ApplicationController
   before_action :set_element, only: %i[ show edit update destroy ]
 
+  # Add in module
+  include SolrBehavior
+
   # GET /elements or /elements.json
   def index
     @elements = Element.all
@@ -12,7 +15,7 @@ class ElementsController < ApplicationController
 
   # GET /elements/new
   def new
-    @element = Element.new
+    @data = Element.new
   end
 
   # GET /elements/1/edit
@@ -21,15 +24,15 @@ class ElementsController < ApplicationController
 
   # POST /elements or /elements.json
   def create
-    @element = Element.new(element_params)
+    @data = Element.new(element_params)
 
     respond_to do |format|
-      if @element.save
-        format.html { redirect_to element_url(@element), notice: "Element was successfully created." }
-        format.json { render :show, status: :created, location: @element }
+      if @data.save
+        format.html { redirect_to element_url(@data), notice: "Element was successfully created." }
+        format.json { render :show, status: :created, location: @data }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @element.errors, status: :unprocessable_entity }
+        format.json { render json: @data.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,19 +40,19 @@ class ElementsController < ApplicationController
   # PATCH/PUT /elements/1 or /elements/1.json
   def update
     respond_to do |format|
-      if @element.update(element_params)
-        format.html { redirect_to element_url(@element), notice: "Element was successfully updated." }
-        format.json { render :show, status: :ok, location: @element }
+      if @data.update(element_params)
+        format.html { redirect_to element_url(@data), notice: "Element was successfully updated." }
+        format.json { render :show, status: :ok, location: @data }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @element.errors, status: :unprocessable_entity }
+        format.json { render json: @data.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /elements/1 or /elements/1.json
   def destroy
-    @element.destroy
+    @data.destroy
 
     respond_to do |format|
       format.html { redirect_to elements_url, notice: "Element was successfully destroyed." }
@@ -60,7 +63,7 @@ class ElementsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_element
-      @element = Element.find(params[:id])
+      @data = Element.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

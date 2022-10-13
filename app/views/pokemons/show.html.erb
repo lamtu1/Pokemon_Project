@@ -1,6 +1,6 @@
 <p class="notice_identify"><%= notice %></p>
 
-<%= render @pokemon %>
+<%= render @data %>
 
 <%# Add in Divider to hold navigation to other pages %>
 <div class="box_div">
@@ -9,9 +9,9 @@
 
   <%# Add in buttons to guide user to different pages %>
   <%= link_to "Back to Pokédex", pokemons_path, class: "button" %>
-  <%= link_to "Edit the Pokémon", edit_pokemon_path(@pokemon), class: "button" %>
+  <%= link_to "Edit the Pokémon", edit_pokemon_path(@data), class: "button" %>
 
   <%# Add in buttons to delete the Pokemon %>
-  <%= button_to "Delete This Pokémon", @pokemon, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "button" %>
+  <%= button_to "Delete This Pokémon", @data, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: "button" %>
   
 </div>

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "elements/new", type: :view do
   before(:each) do
-    assign(:element, Element.new(
+    assign(:data, Element.new(
       power: "MyString"
     ))
   end

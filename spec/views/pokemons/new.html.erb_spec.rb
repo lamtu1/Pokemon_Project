@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "pokemons/new", type: :view do
   before(:each) do
-    assign(:pokemon, Pokemon.new(
+    assign(:data, Pokemon.new(
       name: "MyString"
     ))
   end
