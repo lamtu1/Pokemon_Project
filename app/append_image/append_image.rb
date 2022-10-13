@@ -5,7 +5,7 @@ class AppendImage
         @data = data
     end
 
-    # METHOD: Attach the image if exist
+    # METHOD: Attach the image
     def attach_image(params_image)
         @data.image.attach(params_image)
         @data
