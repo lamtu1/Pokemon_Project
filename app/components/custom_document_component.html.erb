@@ -1,0 +1,68 @@
+<%# OVERRIDE: The Document Component %>
+<%# Find the Pokemon to be able to use on the show page %>
+<% pokemon = Pokemon.find(@document.id) %>
+<br>
+
+<%# Make a box to display thumbnail %>
+<div class="image_holder">
+    <%= image_tag pokemon.image.variant(:thumb) if pokemon.image.attached? %>
+</div>
+
+<%# Display information %>
+<div class="info_msg">
+    <% @document["name_ssim"].each do |name| %>
+        <h1 class="name_display"> <%= name %> </h1>
+    <% end %>
+
+    <% @document["ability_ssim"].each do |ability| %>
+        <p class="template_name"> Ability: &nbsp </p> 
+        <p> <%= ability %> </p>
+    <% end %>
+
+    <p class="template_name"> Type(s): &nbsp </p>
+    <% if pokemon.elements.empty? %>
+        <p> N/A </p>
+    <% else %>
+        <% pokemon.elements.each do |e| %>
+           <p class="type_layout"> <%= e.power %> &nbsp &nbsp </p>
+        <% end %> 
+    <% end %>
+</div>
+
+<br><br><br>
+
+<%# Display more information using the @document object %>
+<div class="default_box">
+    <p class="subheading"> EXPLORE </p>
+    <h4> More Details </h4>
+    <hr>
+
+    <div>
+        <div class="left_div"> 
+            <% @document["height_ssim"].each do |height| %>
+                <p class="template_detail"> Height: &nbsp </p> 
+                <p> <%= height %> m </p>
+            <% end %>
+
+            <% @document["weight_ssim"].each do |weight| %>
+                <p class="template_detail"> Weight: &nbsp </p> 
+                <p> <%= weight %> lbs </p>
+            <% end %> 
+        </div>
+
+        <div class="right_div"> 
+            <% @document["male_chance_ssim"].each do |mc| %>
+                <p class="template_detail"> Male Encounter: &nbsp </p> 
+                <p> <%= mc %>% Chance </p>
+            <% end %>
+
+            <% @document["female_chance_ssim"].each do |fc| %>
+                <p class="template_detail"> Female Encounter: &nbsp </p> 
+                <p> <%= fc %>% Chance </p>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+

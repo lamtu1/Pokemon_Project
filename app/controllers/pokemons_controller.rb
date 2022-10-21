@@ -60,12 +60,6 @@ class PokemonsController < ApplicationController
     end
   end
 
-  # REFACTOR function to add in the image process
-  def image_process
-    # Call this method to append the image via Object Oriented
-    AppendImage.new(@data).attach_image(params[:image])
-  end
-
   
   private
     # Use callbacks to share common setup or constraints between actions.

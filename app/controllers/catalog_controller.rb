@@ -23,6 +23,9 @@ class CatalogController < ApplicationController
       rows: 10
     }
 
+    # Add in a custom Document Component to display data
+    config.show.document_component = CustomDocumentComponent
+
     # solr path which will be added to solr base url before the other solr params.
     #config.solr_path = 'select'
     #config.document_solr_path = 'get'
@@ -31,7 +34,7 @@ class CatalogController < ApplicationController
     #config.per_page = [10,20,50,100]
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_tsim'
+    config.index.title_field = 'name_ssim'
     #config.index.display_type_field = 'format'
     #config.index.thumbnail_field = 'thumbnail_path_ss'
 
@@ -50,7 +53,7 @@ class CatalogController < ApplicationController
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # solr field configuration for document/show views
-    #config.show.title_field = 'title_tsim'
+    config.show.title_field = 'name_ssim'
     #config.show.display_type_field = 'format'
     #config.show.thumbnail_field = 'thumbnail_path_ss'
 
@@ -78,13 +81,9 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'format', label: 'Format'
-    config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
+    config.add_facet_field 'ability_ssim', label: 'Ability', single: true
     config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'language_ssim', label: 'Language', limit: true
-    config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
-    config.add_facet_field 'subject_geo_ssim', label: 'Region'
-    config.add_facet_field 'subject_era_ssim', label: 'Era'
 
     config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['format', 'language_ssim'], collapsing: true
 
@@ -102,32 +101,15 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'title_tsim', label: 'Title'
-    config.add_index_field 'title_vern_ssim', label: 'Title'
-    config.add_index_field 'author_tsim', label: 'Author'
-    config.add_index_field 'author_vern_ssim', label: 'Author'
-    config.add_index_field 'format', label: 'Format'
-    config.add_index_field 'language_ssim', label: 'Language'
-    config.add_index_field 'published_ssim', label: 'Published'
-    config.add_index_field 'published_vern_ssim', label: 'Published'
-    config.add_index_field 'lc_callnum_ssim', label: 'Call number'
+    config.add_index_field 'ability_ssim', label: 'Ability'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'title_tsim', label: 'Title'
-    config.add_show_field 'title_vern_ssim', label: 'Title'
-    config.add_show_field 'subtitle_tsim', label: 'Subtitle'
-    config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
-    config.add_show_field 'author_tsim', label: 'Author'
-    config.add_show_field 'author_vern_ssim', label: 'Author'
-    config.add_show_field 'format', label: 'Format'
-    config.add_show_field 'url_fulltext_ssim', label: 'URL'
-    config.add_show_field 'url_suppl_ssim', label: 'More Information'
-    config.add_show_field 'language_ssim', label: 'Language'
-    config.add_show_field 'published_ssim', label: 'Published'
-    config.add_show_field 'published_vern_ssim', label: 'Published'
-    config.add_show_field 'lc_callnum_ssim', label: 'Call number'
-    config.add_show_field 'isbn_ssim', label: 'ISBN'
+    config.add_show_field 'ability_ssim', label: 'Ability'
+    config.add_show_field 'height_ssim', label: 'Height (m)'
+    config.add_show_field 'weight_ssim', label: 'Weight (lbs)'
+    config.add_show_field 'male_chance_ssim', label: 'Male Chances (%)'
+    config.add_show_field 'female_chance_ssim', label: 'Female Chances (%)'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -154,12 +136,11 @@ class CatalogController < ApplicationController
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
-    config.add_search_field('title') do |field|
+    config.add_search_field('name') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
-        'spellcheck.dictionary': 'title',
-        qf: '${title_qf}',
-        pf: '${title_pf}'
+        qf: "name_ssim",
+        pf: "name_ssim"
       }
     end
 
