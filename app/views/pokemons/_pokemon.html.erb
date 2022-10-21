@@ -22,7 +22,8 @@
         <td> N/A </td>
       <% else %>
         <% pokemon.elements.each do |e| %>
-          <td class="break"> <%= e.power %> </td>
+            <% image_string = e.power.to_s + ".png" %>
+            <td class="break"> <%= image_tag(image_string.to_s, height: "20", width: "20") %> </td>
         <% end %> 
       <% end %>
       <td> <%= pokemon.ability %> </td>    
