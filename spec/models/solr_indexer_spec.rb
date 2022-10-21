@@ -10,7 +10,7 @@ RSpec.describe SolrIndexer, type: :model do
 
         # Make a connection to SOLR & fetch the search query to see if the Pokemon is in SOLR
         solr = Blacklight.default_index.connection
-        response = solr.get 'select', :params => { :q => 'name_ssim:*'}
+        response = solr.get 'select', :params => { :q => 'name_ssim:Piplup' }
 
         expect(response["response"]["docs"].first["name_ssim"]).to eq(["Piplup"])
       end
