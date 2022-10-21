@@ -24,7 +24,8 @@
         <p> N/A </p>
     <% else %>
         <% pokemon.elements.each do |e| %>
-           <p class="type_layout"> <%= e.power %> &nbsp &nbsp </p>
+            <% image_string = e.power.to_s + ".png" %>
+            <%= image_tag(image_string.to_s, height: "20", width: "20") %>
         <% end %> 
     <% end %>
 </div>
